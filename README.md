@@ -5,6 +5,13 @@ This project was created because I wanted Lua developers to experience the **sam
 
 If you know Python’s `time`, then you already know this module.
 
+## Installation
+
+You can install this module with LuaRocks forever.
+```lua
+luarocks install luatime
+```
+
 ---
 
 ## **Module Name**
