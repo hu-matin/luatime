@@ -1,5 +1,5 @@
--- luatime.lua
--- Author: matin
+-- init.lua
+-- Author: Matin
 -- Cross-platform Python-style `time` module for Lua
 
 local luatime = {}
