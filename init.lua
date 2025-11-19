@@ -4,8 +4,8 @@
 
 local luatime = {}
 
-luatime._VERSION = "luatime.lua 1.0"
-luatime.__author = "matin"
+luatime._VERSION = "luatime.lua 1.0-1"
+luatime.__author = "Matin"
 
 
 local luatime = {}
