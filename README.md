@@ -182,4 +182,3 @@ print(luatime.strftime("%Y-%m-%d %H:%M:%S", luatime.localtime()))
 
 This library exists so that developers who already know Python’s `time` can use identical functions in Lua. My goal was to make your transition between languages easier, cleaner, and more enjoyable.
 
-Just tell me ❤️
