@@ -19,7 +19,7 @@ dependencies = {
 build = {
     type = "builtin",
     modules = {
-        luatime = "luatime/init.lua"
+        luatime = "init.lua"
     }
 }
 
