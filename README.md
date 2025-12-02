@@ -11,7 +11,6 @@ You can install this module with LuaRocks forever.
 ```lua
 luarocks install luatime
 ```
-
 ---
 
 ## **Module Name**
