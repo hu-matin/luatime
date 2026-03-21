@@ -25,21 +25,6 @@ end
 
 
 
-local function struct_time(tbl)
-    return {
-        year   = tbl.year or tbl.tm_year,
-        month  = tbl.month or tbl.tm_mon,
-        day    = tbl.day or tbl.tm_mday,
-        hour   = tbl.hour or tbl.tm_hour,
-        min    = tbl.min or tbl.tm_min,
-        sec    = tbl.sec or tbl.tm_sec,
-        wday   = tbl.wday or tbl.tm_wday,
-        yday   = tbl.yday or tbl.tm_yday,
-        isdst  = tbl.isdst or tbl.tm_isdst
-    }
-end
-
-
 -- sleep(seconds)
 function luatime.sleep(sec)
     local t0 = os.clock()
