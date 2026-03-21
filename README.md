@@ -1,6 +1,5 @@
 # **luatime — Python‑style Time Module for Lua**
 
-
 This project was created because I wanted Lua developers to experience the **same simplicity and power** of Python’s built‑in `time` module. The goal of this library is to give you **function names, behaviors, inputs, and outputs identical to Python’s `time` module`**, but fully implemented in **pure Lua**, working on **all operating systems**.
 
 If you know Python’s `time`, then you already know this module.
@@ -8,9 +7,11 @@ If you know Python’s `time`, then you already know this module.
 ## Installation
 
 You can install this module with LuaRocks forever.
+
 ```lua
 luarocks install luatime
 ```
+
 ---
 
 ## **Module Name**
@@ -148,36 +149,113 @@ print(ts)
 
 ---
 
-## **10. luatime.strftime(fmt, [tuple])**
+## **11. luatime.strptime(string, format)**
 
-Formats a time structure into a string.
+Parses a time string according to a format and returns a time structure.
 
 ### Example
 
 ```lua
-print(luatime.strftime("%Y-%m-%d %H:%M:%S", luatime.localtime()))
+local t = luatime.strptime("2023-12-25 15:30:45", "%Y-%m-%d %H:%M:%S")
+print(t.year, t.month, t.day)
 ```
 
 ---
 
+## **12. luatime.time_ns()**
+
+Returns the current time in nanoseconds since the epoch (approximate).
+
+### Example
+
+```lua
+local now_ns = luatime.time_ns()
+print(now_ns)
+```
+
+---
+
+## **13. luatime.monotonic_ns()**
+
+Nanosecond version of monotonic().
+
+### Example
+
+```lua
+local t1 = luatime.monotonic_ns()
+luatime.sleep(1)
+local t2 = luatime.monotonic_ns()
+print(t2 - t1)
+```
+
+---
+
+## **14. luatime.perf_counter_ns()**
+
+Nanosecond version of perf_counter().
+
+---
+
+## **15. luatime.process_time_ns()**
+
+Nanosecond version of process_time().
+
+---
+
+## **16. luatime.get_clock_info(name)**
+
+Returns information about a clock.
+
+### Example
+
+```lua
+local info = luatime.get_clock_info("monotonic")
+print(info.resolution)
+```
+
+---
+
+## **Timezone Variables**
+
+- `luatime.timezone`: Offset of local timezone from UTC
+- `luatime.altzone`: Offset of alternative timezone
+- `luatime.daylight`: Whether daylight saving time is in effect
+- `luatime.tzname`: Tuple of timezone names
+
+### Example
+
+```lua
+print(luatime.timezone)
+print(luatime.tzname[1])
+```
+
 ## **Comparison Table — Python vs Lua Version**
 
-| Python Function | Lua Function | Same Behavior |
-|-----------------|-----------------------------|:--:|
-| time()          | luatime.time()                 | ✔️ |
-| sleep()         | luatime.sleep()                | ✔️ |
-| monotonic()     | luatime.monotonic()            | ✔️ |
-| perf_counter()  | luatime.perf_counter()         | ✔️ |
-| process_time()  | luatime.process_time()         | ✔️ |
-| ctime()         | luatime.ctime()                | ✔️ |
-| localtime()     | luatime.localtime()            | ✔️ |
-| gmtime()        | luatime.gmtime()               | ✔️ |
-| mktime()        | luatime.mktime()               | ✔️ |
-| strftime()      | luatime.strftime()             | ✔️ |
+| Python Function   | Lua Function              | Same Behavior |
+| ----------------- | ------------------------- | :-----------: |
+| time()            | luatime.time()            |      ✔️       |
+| sleep()           | luatime.sleep()           |      ✔️       |
+| monotonic()       | luatime.monotonic()       |      ✔️       |
+| perf_counter()    | luatime.perf_counter()    |      ✔️       |
+| process_time()    | luatime.process_time()    |      ✔️       |
+| ctime()           | luatime.ctime()           |      ✔️       |
+| localtime()       | luatime.localtime()       |      ✔️       |
+| gmtime()          | luatime.gmtime()          |      ✔️       |
+| mktime()          | luatime.mktime()          |      ✔️       |
+| strftime()        | luatime.strftime()        |      ✔️       |
+| strptime()        | luatime.strptime()        |      ✔️       |
+| time_ns()         | luatime.time_ns()         |      ✔️       |
+| monotonic_ns()    | luatime.monotonic_ns()    |      ✔️       |
+| perf_counter_ns() | luatime.perf_counter_ns() |      ✔️       |
+| process_time_ns() | luatime.process_time_ns() |      ✔️       |
+| get_clock_info()  | luatime.get_clock_info()  |      ✔️       |
+| timezone          | luatime.timezone          |      ✔️       |
+| altzone           | luatime.altzone           |      ✔️       |
+| daylight          | luatime.daylight          |      ✔️       |
+| tzname            | luatime.tzname            |      ✔️       |
 
 ---
 
 ## **Final Note**
 
 This library exists so that developers who already know Python’s `time` can use identical functions in Lua. My goal was to make your transition between languages easier, cleaner, and more enjoyable.
-

@@ -1,0 +1,5 @@
+# Lua bytecode
+*.luac
+
+# LuaRocks build files
+*.rock
